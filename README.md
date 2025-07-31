@@ -1,1 +1,1 @@
-# Leetcode-and-GFG-Questions
+# Leetcode and GFG Questions
