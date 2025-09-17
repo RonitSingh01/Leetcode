@@ -1,10 +1,21 @@
 class Solution {
     public boolean check(int[] arr) {
+        int[] copyArr = Arrays.copyOf(arr,arr.length);
         int n = arr.length;
-        int count = 0;
-        for(int i = 1; i <= n ; i++){
-            if(arr[i-1]>arr[i%n])count++;
+        Arrays.sort(copyArr);
+        ArrayList<Integer> al = new ArrayList<>();
+        for(int i: arr){
+            al.add(i);
         }
-        return count<=1 ? true : false;
+        ArrayList<Integer> al1 = new ArrayList<>();
+        for(int i: copyArr){
+            al1.add(i);
+        }
+        for(int r=0;r<n;r++){
+            Collections.rotate(al,1);
+            if(al.equals(al1)) return true;
+
+        }
+        return false;
     }
 }
